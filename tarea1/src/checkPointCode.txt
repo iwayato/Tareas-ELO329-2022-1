@@ -1,0 +1,15 @@
+inputLines.forEach((Line) -> {
+
+    // Se convierte cada linea del archivo en un Array
+    List<String> arrayLine = new ArrayList<String>(Arrays.asList(Line.split("   ")));
+
+    arrayLine.forEach((Item) -> {
+        try {
+            int value = Integer.parseInt(Item);
+            System.out.println(value);
+        } catch (Exception e) {
+            System.out.println(Item.getClass().getName());
+        }
+    });
+    
+});
