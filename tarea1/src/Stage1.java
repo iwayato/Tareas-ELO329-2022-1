@@ -38,7 +38,7 @@ public class Stage1 {
                         System.out.println(String.format("Numero de Cortinas : %d", numCortinas));
                         System.out.println(String.format("Numero de Lamparas : %d", numLamparas));
                         System.out.println(String.format("Numero de Controles de Cortinas : %d", numControlCortinas));
-                        System.out.println(String.format("Numero de controles de Lamparas : %d", numControlLamparas));
+                        System.out.println(String.format("Numero de Controles de Lamparas : %d", numControlLamparas));
                     } catch (Exception e) {
                         System.out.println("Cantidad no valida para numero de dispositivos");
                     }
