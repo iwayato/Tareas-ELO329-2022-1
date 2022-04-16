@@ -19,8 +19,7 @@ public class Operator {
             }else{
                 in.nextInt();
                 if(in.next().equals("P")){
-                    lampControl.pressPower();
-                    out.println("entra");
+                    lampControl.pressPower();           
                 }
             }
             out.println(time+"\t"+cloud.getState());

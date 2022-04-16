@@ -22,4 +22,3 @@ run:
 
 clean:
 	rm *.class
-
