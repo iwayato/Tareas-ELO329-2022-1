@@ -2,6 +2,11 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Operator {
+
+    private double time=0;
+    private LampControl lampControl;
+    private Cloud cloud;
+    
     public Operator(LampControl lc, Cloud c){
         lampControl=lc;
         cloud=c;
@@ -25,7 +30,4 @@ public class Operator {
             out.println(time+"\t"+cloud.getState());
         }
     }
-    private double time=0;
-    private LampControl lampControl;
-    private Cloud cloud;
 }

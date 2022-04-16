@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
 public class Cloud {
+
+    private ArrayList<Lamp> lamps; // getting ready for next stages
+    public String getstate; //transformar en un array
+    
     public Cloud() {
         lamps = new ArrayList<Lamp>();
     }
@@ -31,6 +35,4 @@ public class Cloud {
         }
         return getstate;
     }
-    private ArrayList<Lamp> lamps; // getting ready for next stages
-    public String getstate; //transformar en un array
 }
