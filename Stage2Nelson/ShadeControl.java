@@ -8,10 +8,10 @@ public class ShadeControl extends DomoticDeviceControl{
         cloud.startShadeUp(channel);
     }
     public void startDown(){
-        // ??
+        cloud.startShadeDown(channel);
     }
     public void stop(){
-        // ??
+        cloud.stopShade(channel);
     }
 
 }

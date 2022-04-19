@@ -26,12 +26,12 @@ public class RollerShade extends DomoticDevice {
         String s = String.valueOf(length);
         return s;
     }
-    private class Motor {  //nested class, Motor is only used within RollerShade.
+    private static class Motor {  //nested class, Motor is only used within RollerShade.
         public Motor (double a){
             alpha = a;
             state = MotorState.STOPPED;
         }
-        public enum MotorState {
+        public static enum MotorState {
             UPWARD,
             STOPPED,
             DOWNWARD
@@ -65,7 +65,7 @@ public class RollerShade extends DomoticDevice {
     }
 
     private Motor motor;
-    private double length;
+    private static double length;
     private final double MaxShadeLength;
     private static int nextId= 0;
 }
