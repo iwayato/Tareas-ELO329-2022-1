@@ -4,30 +4,42 @@ import java.util.Scanner;
 
 public class Stage2 {
     public static void main(String [] args) throws IOException {
+
         if (args.length != 1) {
             System.out.println("Usage: java Stage1 <configurationFile.txt>");
             System.exit(-1);
         }
-        Scanner in = new Scanner(new File(args[0]));
-        //System.out.println("File: " + args[0]);
 
+        Scanner in = new Scanner(new File(args[0]));
+
+        // Se Crea La Nube
         Cloud cloud = new Cloud();
 
-        // reading <#_de_cortinas> <#_de_lámparas> <#_controles_cortinas> <#_controles_lámparas>
-        int numRollerShades = in.nextInt();
-        in.nextInt();  // skip number of roller shades
-        int numShadeControls = in.nextInt();
-        in.nextInt(); // skip number of lamp's controls
+        // Lectura Primera Línea : Número de Lámparas, Cortinas y Cantiadad de Controles
+        int numRollershades = in.nextInt();
+        int numLamps = in.nextInt();
+        int numRollershadeControls = in.nextInt();
+        int numLampsControls = in.nextInt();
 
-        // read <alfa0> <length0> <canal0> … <alfaN_1> <lengthN_1> <canalN_1>
-        double alpha = in.nextDouble();
-        double maxLength = in.nextDouble();
-        int channel = in.nextInt();
+        // Lectura Segunda Línea : Propiedades de las cortinas
+        for (int i = 0; i < 3 * numRollershades; i++) {
+            double alpha = in.nextDouble();
+            double maxLength = in.nextDouble();
+            int channel = in.nextInt();
+            RollerShade rollerShade = new RollerShade(channel, alpha, maxLength);
+            cloud.addRollerShade(rollerShade);
+        }
 
-        RollerShade rollerShade = new RollerShade(channel, alpha, maxLength);
-        cloud.addRollerShade(rollerShade);
+        // Lectura Tercera Línea
+        for (int i = 0; i < numLamps; i++) {
+            int channelControlLamp = in.nextInt();
+            Lamp lamp = new Lamp(channelControlLamp);
+            cloud.addLamp(lamp);
+        }
 
-        in.nextInt();
+        //Lectura Cuarta Línea
+        
+
         // System.out.println("next int:"+ in.nextInt()); // skip lamp's channels
         // creating just one roller shade's control at <canal0>
         channel = in.nextInt();
