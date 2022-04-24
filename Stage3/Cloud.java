@@ -20,24 +20,31 @@ public class Cloud {
 
     public void advanceTime(double delta){
         for (DomoticDevice dd: rollerShades) {
-            RollerShade rs =(RollerShade)dd;
+            RollerShade rs = (RollerShade)dd;
             rs.advanceTime(delta);
         }
-    }
-
-    private DomoticDevice getDomoticDeviceAtChannel( ArrayList<DomoticDevice> devices, int channel){
-        for( int i=0 ; i<devices.size() ; i++){
-            if (devices.get(i).getChannel() == channel) {
-                return devices.get(i);
-            }
-        }
-        return null;
     }
 
     public void changeLampPowerState(int channel){
         for( int i = 0 ; i < lamps.size() ; i++){
             if (lamps.get(i).getChannel() == channel) {
                 ((Lamp)lamps.get(i)).changePowerState();
+            }
+        }
+    }
+
+    public void changeColorUp(int channel, String color){
+        for( int i = 0 ; i < lamps.size() ; i++){
+            if (lamps.get(i).getChannel() == channel) {
+                ((Lamp)lamps.get(i)).changeColorUp(color);
+            }
+        }
+    }
+
+    public void changeColorDown(int channel, String color){
+        for( int i = 0 ; i < lamps.size() ; i++){
+            if (lamps.get(i).getChannel() == channel) {
+                ((Lamp)lamps.get(i)).changeColorDown(color);
             }
         }
     }
@@ -68,19 +75,25 @@ public class Cloud {
 
     public String getHeaders(){
         String header = "";
-        for (DomoticDevice  rs: rollerShades)
+        for (DomoticDevice  rs: rollerShades){
             header += rs.getHeader()+"\t";
-        for (DomoticDevice l: lamps)
+        }
+        for (DomoticDevice l: lamps){
             header += l.getHeader()+"\t";
+        }
         return header;
     }
 
     public String getState(){
+
         String state = "";
-        for (DomoticDevice  rs: rollerShades)
-            state += rs.toString()+"\t";
-        for (DomoticDevice l: lamps)
-            state += l.toString()+"\t";
+ 
+        for (DomoticDevice  rs: rollerShades){
+            state += rs.toString() + "\t";
+        }
+        for (DomoticDevice l: lamps){
+            state += l.toString() + "\t";
+        }
         return state;
     }
 }

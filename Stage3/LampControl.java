@@ -1,13 +1,19 @@
 public class LampControl extends DomoticDeviceControl {
-    public LampControl(int channel, Cloud c){
-        super(channel, c);
-        this.channel= channel;
-        cloud = c;
+
+    public LampControl(int channel, Cloud cloud){
+        // Llamado Constructor de la Clase Padre
+        super(channel, cloud);
     }
+
     public void pressPower(){
         cloud.changeLampPowerState(channel);
     }
 
-    private int channel;
-    private Cloud cloud;
+    public void UpColor(String color){
+        cloud.changeColorUp(channel, color);
+    }
+
+    public void DownColor(String color){
+        cloud.changeColorDown(channel, color);
+    }
 }
