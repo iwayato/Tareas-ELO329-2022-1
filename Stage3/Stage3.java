@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Stage2 {
+public class Stage3 {
     public static void main(String [] args) throws IOException {
         
         if (args.length != 1) {

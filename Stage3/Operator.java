@@ -12,6 +12,8 @@ public class Operator {
 
     public Operator(Cloud c){
         cloud = c;
+        lampControls = new ArrayList<DomoticDeviceControl>();
+        rollerShadesControls = new ArrayList<DomoticDeviceControl>();
     }
 
     public void addLampControl(LampControl lampControl){
@@ -92,7 +94,7 @@ public class Operator {
                 }
             }
         }
-        
+
         out.println(time + "\t" + cloud.getState());
     }
 }
