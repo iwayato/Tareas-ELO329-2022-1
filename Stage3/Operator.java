@@ -60,7 +60,7 @@ public class Operator {
                                 break;
                             case 'S': rs.stop();
                                 break;
-                            default: out.println("Unexpected command:" + command);
+                            default: out.println("Unexpected command: " + command);
                                 System.exit(-1);
                         }
                     }
@@ -72,23 +72,33 @@ public class Operator {
                 int channel = in.nextInt();
 
                 // Color sobre el cual Actuar
-                String color = in.next();
+                String colorOrPower = in.next();
 
-                // Comando a Ejecutar
-                String command = in.next();
+                if (colorOrPower.equals("P")) {
+                    for (DomoticDeviceControl ddc : lampControls) {
+                        LampControl lc = (LampControl)ddc;
+                        if (channel == lc.getChannel()) {
+                            lc.pressPower();
+                        }
+                    }
+                }
+                else{
+                    // Comando a Ejecutar
+                    String command = in.next();
 
-                for (DomoticDeviceControl ddc : lampControls) {
-                    LampControl lc = (LampControl)ddc;
-                    if (channel == lc.getChannel()){
-                        switch (command.charAt(0)) {
-                            case 'U':
-                                lc.UpColor(color);
-                                break;
-                            case 'D':
-                                lc.DownColor(color);
-                                break;
-                            default: out.println("Unexpected command:" + command);
-                                System.exit(-1);
+                    for (DomoticDeviceControl ddc : lampControls) {
+                        LampControl lc = (LampControl)ddc;
+                        if (channel == lc.getChannel()){
+                            switch (command.charAt(0)) {
+                                case 'U':
+                                    lc.UpColor(colorOrPower);
+                                    break;
+                                case 'D':
+                                    lc.DownColor(colorOrPower);
+                                    break;
+                                default: out.println("Unexpected command: " + command);
+                                    System.exit(-1);
+                            }
                         }
                     }
                 }

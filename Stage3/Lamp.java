@@ -25,12 +25,21 @@ public class Lamp extends DomoticDevice {
         switch (color) {
             case "R":
                 r += 10;
+                if (r >= 255) {
+                    r = 255;
+                }
                 break;    
             case "G":
                 g += 10;
+                if (g >= 255) {
+                    g = 255;
+                }
                 break;
             case "B":
                 b += 10;
+                if (b >= 255) {
+                    b = 255;
+                }
                 break;
             default: System.out.println("Unexpected command");
             System.exit(-1);
@@ -41,12 +50,21 @@ public class Lamp extends DomoticDevice {
         switch (color) {
             case "R":
                 r -= 10;
+                if (r < 0) {
+                    r = 0;
+                }
                 break;    
             case "G":
                 g -= 10;
+                if (g < 0) {
+                    g = 0;
+                }
                 break;
             case "B":
                 b -= 10;
+                if (b < 0) {
+                    b = 0;
+                }
                 break;
             default: System.out.println("Unexpected command");
             System.exit(-1);
@@ -54,7 +72,7 @@ public class Lamp extends DomoticDevice {
     }
 
     public String getHeader(){
-        String header= "\tL" + nextId + "R\tL" + nextId + "G\tL" + nextId+"B\t";
+        String header= "L" + nextId + "R\tL" + nextId + "G\tL" + nextId+"B\t";
         return header;
     }
 
