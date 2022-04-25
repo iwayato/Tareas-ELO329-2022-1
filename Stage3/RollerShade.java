@@ -1,15 +1,26 @@
 public class RollerShade extends DomoticDevice {
-
+    
     private Motor motor;
+    private final int id;
     private static double length;
     private final double MaxShadeLength;
-    private static int nextId= 0;
+    private static int nextId = 0;
+    
+    public RollerShade (int channel, double alpha, double length) {
+        super(channel);
+        motor = new Motor(alpha);
+        this.MaxShadeLength= length;
+    }
+
+    {
+        id = nextId++;
+    }
 
     private static class Motor {  //nested class, Motor is only used within RollerShade.
 
         private double alpha;
         private MotorState state;
-        private static double RADIUS=0.04;
+        private static double RADIUS = 0.04;
 
         public Motor (double a){
             alpha = a;
@@ -52,11 +63,6 @@ public class RollerShade extends DomoticDevice {
         }
     }
 
-    public RollerShade (int channel, double alpha, double length) {
-        super(nextId, channel);
-        motor = new Motor(alpha);
-        this.MaxShadeLength= length;
-    }
 
     public void startUp(){
         motor.turnUp();
@@ -75,7 +81,7 @@ public class RollerShade extends DomoticDevice {
     }
 
     public String getHeader(){
-        String s = "RS" + getId();
+        String s = "RS" + id;
         return s;
     }
     

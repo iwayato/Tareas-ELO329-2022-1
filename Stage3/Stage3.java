@@ -49,8 +49,8 @@ public class Stage3 {
 
         // Lectura Quinta Línea
         for (int i = 0; i < numLampsControls; i++) {
-            int channelControlRollerLamp = in.nextInt();
-            LampControl lampControl = new LampControl(channelControlRollerLamp, cloud);
+            int channelControlLamp = in.nextInt();
+            LampControl lampControl = new LampControl(channelControlLamp, cloud);
             operator.addLampControl(lampControl);
         }
 

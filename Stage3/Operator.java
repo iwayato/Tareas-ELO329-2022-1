@@ -54,11 +54,14 @@ public class Operator {
                     ShadeControl rs = (ShadeControl)ddc;
                     if (channel == rs.getChannel()){
                         switch (command.charAt(0)) {
-                            case 'D': rs.startDown();
+                            case 'D': 
+                                rs.startDown();
                                 break;
-                            case 'U': rs.startUp();
+                            case 'U': 
+                                rs.startUp();
                                 break;
-                            case 'S': rs.stop();
+                            case 'S': 
+                                rs.stop();
                                 break;
                             default: out.println("Unexpected command: " + command);
                                 System.exit(-1);

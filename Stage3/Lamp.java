@@ -1,15 +1,20 @@
 public class Lamp extends DomoticDevice {
 
     private short r,g,b;
+    private final int id;
     private LampState state;
     private static int nextId = 0;
 
     public Lamp (int channel){
-        super(nextId, channel);
+        super(channel);
         state = LampState.OFF;
         r = 255;
         g = 255;
         b = 255;
+    }
+
+    {
+        id = nextId++;
     }
 
     public void changePowerState(){
@@ -72,7 +77,7 @@ public class Lamp extends DomoticDevice {
     }
 
     public String getHeader(){
-        String header= "L" + nextId + "R\tL" + nextId + "G\tL" + nextId+"B\t";
+        String header = "L" + id + "R\tL" + id + "G\tL" + id + "B";
         return header;
     }
 

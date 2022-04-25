@@ -50,8 +50,8 @@ public class Cloud {
     }
 
     public void startShadeUp(int channel){
-        for( int i=0 ; i<rollerShades.size() ; i++){
-            if (rollerShades.get(i).getChannel()==channel) {
+        for(int i=0 ; i < rollerShades.size() ; i++){
+            if (rollerShades.get(i).getChannel() == channel) {
                 ((RollerShade)rollerShades.get(i)).startUp();
             }
         }
