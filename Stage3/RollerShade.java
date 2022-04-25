@@ -9,14 +9,14 @@ public class RollerShade extends DomoticDevice {
     public RollerShade (int channel, double alpha, double length) {
         super(channel);
         motor = new Motor(alpha);
-        this.MaxShadeLength= length;
+        MaxShadeLength= length;
     }
 
     {
         id = nextId++;
     }
 
-    private static class Motor {  //nested class, Motor is only used within RollerShade.
+    public static class Motor {  //nested class, Motor is only used within RollerShade.
 
         private double alpha;
         private MotorState state;
@@ -26,7 +26,7 @@ public class RollerShade extends DomoticDevice {
             alpha = a;
             state = MotorState.STOPPED;
         }
-
+        
         public static enum MotorState {
             UPWARD,
             STOPPED,
@@ -47,17 +47,19 @@ public class RollerShade extends DomoticDevice {
 
         public void advanceTime(double delta){
 
+            System.out.println("advanceTime");
+
             double increment = alpha*delta*RADIUS;
 
-            switch (state) {
+            switch (state){
                 case STOPPED: 
-                    length= 0;
+                    length = 0;
                     break;
                 case DOWNWARD:
-                    length= -100;
+                    length = -100;
                     break;
                 case UPWARD:
-                    length= 100;
+                    length = 100;
                     break;
             }
         }

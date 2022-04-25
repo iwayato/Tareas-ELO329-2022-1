@@ -30,6 +30,7 @@ public class Operator {
 
         while(in.hasNextInt()){
 
+            // Tiempo en el cual se ejecuta el comando
             int commandTime = in.nextInt();
 
             while (time < commandTime){
@@ -38,7 +39,7 @@ public class Operator {
                 time += delta;
             }
 
-            // Se Define sobre que dispositivo Actuar (C o L)
+            // Se Define sobre que dispositivo Actuar (L o C)
             String device = in.next();
 
             // En caso de que sea Cortina
@@ -52,7 +53,7 @@ public class Operator {
 
                 for (DomoticDeviceControl ddc : rollerShadesControls) {
                     ShadeControl rs = (ShadeControl)ddc;
-                    if (channel == rs.getChannel()){
+                    if (rs.getChannel() == channel){
                         switch (command.charAt(0)) {
                             case 'D': 
                                 rs.startDown();
@@ -71,21 +72,24 @@ public class Operator {
             }
             // En caso de que sea Lámpara
             else{
+
                 // Canal del Dispositivo
                 int channel = in.nextInt();
 
-                // Color sobre el cual Actuar
+                // Color sobre el cual Actuar o si se Enciende la Lámpara
                 String colorOrPower = in.next();
 
                 if (colorOrPower.equals("P")) {
                     for (DomoticDeviceControl ddc : lampControls) {
                         LampControl lc = (LampControl)ddc;
-                        if (channel == lc.getChannel()) {
+                        if (lc.getChannel() == channel) {
                             lc.pressPower();
                         }
                     }
                 }
+                // La Lámpara ya está encendida
                 else{
+
                     // Comando a Ejecutar
                     String command = in.next();
 
