@@ -1,6 +1,7 @@
 public abstract class DomoticDevice {
 
     public abstract String getHeader();
+    public abstract String toString();
     
     private int channel;
 

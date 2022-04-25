@@ -34,7 +34,7 @@ public class Operator {
             int commandTime = in.nextInt();
 
             while (time < commandTime){
-                out.println(time + "\t" + cloud.getState());
+                out.println(time + "\t" + cloud.getState()); //*
                 cloud.advanceTime(delta);
                 time += delta;
             }

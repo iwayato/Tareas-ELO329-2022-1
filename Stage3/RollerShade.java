@@ -2,28 +2,30 @@ public class RollerShade extends DomoticDevice {
     
     private Motor motor;
     private final int id;
-    private static double length;
     private final double MaxShadeLength;
     private static int nextId = 0;
     
     public RollerShade (int channel, double alpha, double length) {
         super(channel);
-        motor = new Motor(alpha);
-        MaxShadeLength= length;
+        motor = new Motor(alpha, length);
+        MaxShadeLength = length;
     }
 
     {
         id = nextId++;
     }
 
-    public static class Motor {  //nested class, Motor is only used within RollerShade.
+    //nested class, Motor is only used within RollerShade.
+    public static class Motor {
 
         private double alpha;
+        private double length;
         private MotorState state;
         private static double RADIUS = 0.04;
 
-        public Motor (double a){
+        public Motor (double a, double l){
             alpha = a;
+            length = l;
             state = MotorState.STOPPED;
         }
         
@@ -46,8 +48,6 @@ public class RollerShade extends DomoticDevice {
         }
 
         public void advanceTime(double delta){
-
-            System.out.println("advanceTime");
 
             double increment = alpha*delta*RADIUS;
 
@@ -89,7 +89,7 @@ public class RollerShade extends DomoticDevice {
     
     public String toString(){
         //String s = String.valueOf(Math.round(length/MaxShadeLength*100)); // descomentar esto despues
-        String s = String.valueOf(length);
+        String s = String.valueOf(motor.length);
         return s;
     }
 }
