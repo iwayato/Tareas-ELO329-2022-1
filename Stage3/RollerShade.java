@@ -1,13 +1,14 @@
 public class RollerShade extends DomoticDevice {
     
     private Motor motor;
+    private double length;
     private final int id;
     private final double MaxShadeLength;
     private static int nextId = 0;
     
     public RollerShade (int channel, double alpha, double length) {
         super(channel);
-        motor = new Motor(alpha, length);
+        motor = new Motor(alpha);
         MaxShadeLength = length;
     }
 
@@ -19,13 +20,13 @@ public class RollerShade extends DomoticDevice {
     public static class Motor {
 
         private double alpha;
-        private double length;
+        private double direction;
         private MotorState state;
         private static double RADIUS = 0.04;
 
-        public Motor (double a, double l){
+        public Motor (double a){
             alpha = a;
-            length = l;
+            direction = 0;
             state = MotorState.STOPPED;
         }
         
@@ -53,13 +54,13 @@ public class RollerShade extends DomoticDevice {
 
             switch (state){
                 case STOPPED: 
-                    length = 0;
+                    direction = 0;
                     break;
                 case DOWNWARD:
-                    length = -100;
+                    direction = -100;
                     break;
                 case UPWARD:
-                    length = 100;
+                    direction = 100;
                     break;
             }
         }
@@ -89,7 +90,7 @@ public class RollerShade extends DomoticDevice {
     
     public String toString(){
         //String s = String.valueOf(Math.round(length/MaxShadeLength*100)); // descomentar esto despues
-        String s = String.valueOf(motor.length);
+        String s = String.valueOf(motor.direction);
         return s;
     }
 }
