@@ -4,31 +4,66 @@ import java.util.Scanner;
 
 public class Stage1 {
     public static void main(String [] args) throws IOException {
+
+        // En caso de que no se ingrese un archivo como argumento
         if (args.length != 1) {
             System.out.println("Usage: java Stage1 <configurationFile.txt>");
             System.exit(-1);
         }
+
         Scanner in = new Scanner(new File(args[0]));
-        //System.out.println("File: " + args[0]);
+
+        // Se crea la nube
         Cloud cloud = new Cloud();
-        // reading <#_de_cortinas> <#_de_lámparas> <#_controles_cortinas> <#_controles_lámparas>
-        in.nextInt();  // skip number of roller shades
-        int numLamps = in.nextInt(); //aqui se guarda el numero de lamparas 
-        in.nextInt();  // skip number of roller shade controls
-        int numLampsControl = in.nextInt();//aqui se sabe el numero de controles de lampara
-        // skipping <alfa0> <length0> <canal0> … <alfaN_1> <lengthN_1> <canalN_1>
+
+        // Se salta el número de cortinas
+        in.nextInt();
+
+        // Número de Lámparas
+        int numLamps = in.nextInt();
+
+        // Se salta el número de Controles de Cortina
+        in.nextInt();
+
+        // Número de Controles de Lámpara
+        int numLampsControl = in.nextInt();
+
+        // Se saltan las propiedades de las Cortinas, dado que no se utilizarán cortinas
         in.nextLine();
-        // creating lamps according to <canal0>…..<canalL_1> for just one lamp
-        int channel = in.nextInt(); //aqui se sabe el numero del canal de la lampara
-        Lamp lamp = new Lamp(channel); //se crea la lampara con su respectivo canal
-        cloud.addLamp(lamp);//se agrega la lampara a la nube
-        // skipping creation of roller shade's controls at <canal0>
+
+        // Canal de la Lámpara
+        int lampChannel = in.nextInt();
+
+        // Se crea la Lámpara con su respectivo canal
+        if (numLamps == 1) {
+            Lamp lamp = new Lamp(lampChannel); 
+            // Se añade la Lámpara a la Nube
+            cloud.addLamp(lamp);
+        }
+        else {
+            System.out.println("En esta etapa sólo se permite una lámpara");
+            System.exit(-1);
+        }
+
+        // Se saltan los canales de los Controles de Cortina
         in.nextLine();
-        // creating just one lamp's control at <canal0>
-        channel = in.nextInt();//aqui se sabe el numero del canal del control de la lampara
-        LampControl lampControl = new LampControl(channel, cloud);//se crea el control con su respectivo canal
-        Operator operator = new Operator(lampControl, cloud);
-        operator.executeCommands(in, System.out);
+
+        // Canal del Control de Lámpara
+        int controlLampChannel = in.nextInt();
+
+        // Se crea el control de Lámpara en su respectivo Canal
+        if (numLampsControl == 1) {
+            LampControl lampControl = new LampControl(controlLampChannel, cloud);
+            // Se crea el Operador, que ejecuta las acciones del archivo de entrada
+            Operator operator = new Operator(lampControl, cloud);
+            // Se ejecutan los comandos del archivo
+            operator.executeCommands(in, System.out);
+        } else {
+            System.out.println("En esta etapa sólo se permite una lámpara");
+            System.exit(-1);
+        }
+
+        // Se cierra el archivo de entrada
         in.close();
     }
 }
