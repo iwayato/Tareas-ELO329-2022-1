@@ -2,16 +2,25 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Operator {
+    
+    private double time=0;
+    private ShadeControl rsControl;
+    private Cloud cloud;
+    private final double delta = 0.1;
+    
     public Operator(Cloud c, ShadeControl sc){
         cloud= c;
         rsControl= sc;
     }
+    
     public void executeCommands(Scanner in, PrintStream out){
+        
         out.println("Time\t" + cloud.getHeaders());
+
         while(in.hasNextInt()){
             int commandTime=in.nextInt();
             while (time < commandTime) {
-                out.println(time+"\t"+cloud.getState());
+                out.println(time + "\t" + cloud.getState());
                 cloud.advanceTime(delta);
                 time+=delta;
             }
@@ -40,8 +49,4 @@ public class Operator {
         }
         out.println(time + "\t" + cloud.getState());
     }
-    private double time=0;
-    private ShadeControl rsControl;
-    private Cloud cloud;
-    private final double delta = 0.1;
 }

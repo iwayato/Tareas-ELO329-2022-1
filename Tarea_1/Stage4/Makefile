@@ -1,18 +1,21 @@
 JC = javac
 JM = java
-MAIN = Stage1
+MAIN = Stage4
 INPUTFILE = configuration.txt
 OUTPUT = > output.tsv
 RM = rm
 CLASES = *.class
 
 CLASSES = \
-Stage1.java \
-Cloud.java \
-Lamp.java \
+Stage4.java \
+ShadeControl.java \
+RollerShade.java \
+Operator.java \
 LampControl.java \
-LampState.java \
-Operator.java
+Lamp.java \
+DomoticDeviceControl.java \
+DomoticDevice.java \
+Cloud.java
 
 default: compile
 

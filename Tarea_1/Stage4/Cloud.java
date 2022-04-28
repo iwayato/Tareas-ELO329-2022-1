@@ -77,12 +77,14 @@ public class Cloud {
     }
 
     public String getHeaders(){
+
         String header = "";
+        
         for (DomoticDevice  rs: rollerShades){
-            header += rs.getHeader()+"\t";
+            header += rs.getHeader() + "\t";
         }
         for (DomoticDevice l: lamps){
-            header += l.getHeader()+"\t";
+            header += l.getHeader() + "\t";
         }
         return header;
     }

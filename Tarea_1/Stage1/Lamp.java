@@ -33,14 +33,14 @@ public class Lamp {
     }
 
     public String getHeader(){
-        String header = "L" + id + "R" + "\t" + "L" + id + "G" + "\t" + "L" + id + "B";
+        String header = "L" + id + "R\tL" + id + "G\tL" + id + "B";
         return header;
     }
-    
+
     public String toString(){
         if (state == LampState.ON)
-            return  r + "\t" + g + "\t" + b;
+            return "" + r + "\t" + g + "\t" + b;
         else
-            return  "0\t0\t0";
+            return "0\t0\t0";
     }
 }
