@@ -33,7 +33,6 @@ public class Operator {
             String command=in.next();
             if (channel == rsControl.getChannel()) {
                 
-                //System.out.print("En el tiempo "+time+" se tiene la letra "+command.charAt(0)+"\n");
                 switch (command.charAt(0)) {
                     case 'D': rsControl.startDown();
                         break;
@@ -45,7 +44,6 @@ public class Operator {
                         System.exit(-1);
                 }
             }
-            //in.nextLine();
         }
         out.println(time + "\t" + cloud.getState());
     }

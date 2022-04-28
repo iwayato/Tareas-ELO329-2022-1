@@ -53,7 +53,6 @@ public class Cloud {
         for(int i = 0 ; i < rollerShades.size() ; i++){
             if (rollerShades.get(i).getChannel() == channel) {
                 ((RollerShade)rollerShades.get(i)).startUp();
-                //System.out.println("startShadeUp " + channel);
             }
         }
     }
@@ -62,7 +61,6 @@ public class Cloud {
         for(int i = 0 ; i < rollerShades.size() ; i++){
             if (rollerShades.get(i).getChannel() == channel) {
                 ((RollerShade)rollerShades.get(i)).startDown();
-                //System.out.println("startShadeDown " + channel);
             }
         }
     }
@@ -71,7 +69,6 @@ public class Cloud {
         for(int i = 0 ; i < rollerShades.size() ; i++){
             if (rollerShades.get(i).getChannel() == channel) {
                 ((RollerShade)rollerShades.get(i)).stop();
-                //System.out.println("stopShade " + channel);
             }
         }
     }
