@@ -3,19 +3,16 @@ public class RollerShade extends DomoticDevice {
     private Motor motor;
     private final int id;
     private static int nextId = 0;
-    //private final double MaxShadeLength;
-    
+
     public RollerShade (int channel, double alpha, double length) {
         super(channel);
         motor = new Motor(alpha, length);
-        //MaxShadeLength = length;
     }
 
     {
         id = nextId++;
     }
 
-    //nested class, Motor is only used within RollerShade.
     public static class Motor {
 
         private double alpha;
@@ -24,13 +21,11 @@ public class RollerShade extends DomoticDevice {
         private double currentLength = 0;
         private MotorState state;
         private static double RADIUS = 0.04;
-        //private double direction;
 
         public Motor (double a, double l){
             alpha = a;
             maxShadeLength = l;
             state = MotorState.STOPPED;
-            //direction = 0;
         }
         
         public static enum MotorState {
@@ -57,7 +52,6 @@ public class RollerShade extends DomoticDevice {
 
             switch (state){
                 case STOPPED:
-                    //direction = 0;
                     break;
                 case DOWNWARD:
                     if (currentLength + increment > maxShadeLength) {
@@ -67,7 +61,6 @@ public class RollerShade extends DomoticDevice {
                         currentLength = currentLength + increment;
                         break;
                     }
-                    //direction = -100;
                 case UPWARD:
                     if (currentLength - increment < 0) {
                         break;
@@ -76,7 +69,6 @@ public class RollerShade extends DomoticDevice {
                         currentLength = currentLength - increment;
                         break;
                     }
-                    //direction = 100;
             }
         }
     }
@@ -104,8 +96,7 @@ public class RollerShade extends DomoticDevice {
     }
     
     public String toString(){
-        //String s = String.valueOf(Math.round(length/MaxShadeLength*100)); // descomentar esto despues
-        String s = String.valueOf(motor.currentLength);
+        String s = String.valueOf(Math.round((motor.currentLength/motor.maxShadeLength)*100));
         return s;
     }
 }
