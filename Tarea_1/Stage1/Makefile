@@ -3,6 +3,8 @@ JM = java
 MAIN = Stage1
 INPUTFILE = configuration.txt
 OUTPUT = > output.csv
+RM = rm
+CLASES = *.class
 
 CLASSES = \
 Stage1.java \
@@ -21,4 +23,4 @@ run:
 	$(JM) $(MAIN) $(INPUTFILE) $(OUTPUT)
 
 clean:
-	rm *.class
+	$(RM) $(CLASES)
