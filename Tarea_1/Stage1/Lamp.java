@@ -38,9 +38,6 @@ public class Lamp {
     }
 
     public String toString(){
-        if (state == LampState.ON)
-            return "" + r + "\t" + g + "\t" + b;
-        else
-            return "0\t0\t0";
+        return "" + r + "\t" + g + "\t" + b;
     }
 }
