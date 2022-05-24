@@ -14,7 +14,7 @@ public class LampControlView extends VBox {
     
         Button button = new Button();
         getChildren().addAll(button);
-        button.setTranslateX(175);
+        button.setTranslateX(177);
         button.setTranslateY(-300);
         button.setGraphic(view);
         

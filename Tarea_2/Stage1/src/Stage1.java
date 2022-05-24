@@ -1,11 +1,11 @@
 import javafx.application.Application;
-//import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-//import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+//import javafx.geometry.Insets;
+//import javafx.scene.layout.Pane;
 
 public class Stage1 extends Application {
 
