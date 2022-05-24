@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "--module-path C:/Users/iwaya/Desktop/Code/javafx-sdk-18.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "App",
+            "projectName": "Test_2b34c26b",
+            "vmArgs": "--module-path C:/Users/iwaya/Desktop/Code/javafx-sdk-18.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}
