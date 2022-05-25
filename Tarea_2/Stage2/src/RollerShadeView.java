@@ -5,8 +5,12 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
 public class RollerShadeView extends Group {
+
+    private Rectangle cloth;
+
     public RollerShadeView(double maxLength, double width, double length, double radius, Color color) {
-        Rectangle background = new Rectangle(5,5, width-10,maxLength-5);
+
+        Rectangle background = new Rectangle(5, 5, width-10, maxLength-5);
         background.setFill(Color.BLUE);  // I chose Blue
         getChildren().add(background);
 
@@ -20,8 +24,8 @@ public class RollerShadeView extends Group {
         rightSide.setStroke(Color.BLACK);
         //¿?
     }
+
     public void setLength(double length) {
         // ¿?
     }
-    private Rectangle cloth;
 }

@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Stage2",
+            "request": "launch",
+            "mainClass": "Stage2",
+            "projectName": "Stage2_1a8e94ad",
+            "vmArgs": "--module-path C:/Users/iwaya/Desktop/Code/javafx-sdk-18.0.1/lib --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}",
