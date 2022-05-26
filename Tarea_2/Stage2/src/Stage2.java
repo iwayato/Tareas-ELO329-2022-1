@@ -15,6 +15,11 @@ public class Stage2 extends Application {
     
     public void start(Stage primaryStage) {
 
+        String cssLayout = 
+            "-fx-border-color: black;\n" +
+            "-fx-border-insets: 5;\n" +
+            "-fx-border-width: 2;\n";
+        
         int lampChannel = 1;
         int shadeChannel = 2;
 
@@ -29,12 +34,30 @@ public class Stage2 extends Application {
         
         VBox vBoxLeft = new VBox(20);
         VBox vBoxRight = new VBox(20);
+        HBox hBox1 = new HBox();
+        HBox hBox2 = new HBox();
+        HBox hBox3 = new HBox();
+        HBox hBox4 = new HBox();
+        hBox1.getChildren().addAll(shadeControl.getView());
+        hBox1.setAlignment(Pos.CENTER);
+        hBox1.setStyle(cssLayout);
+        hBox2.getChildren().addAll(lampControl.getView());
+        hBox2.setAlignment(Pos.CENTER);
+        hBox2.setStyle(cssLayout);
+        hBox3.getChildren().addAll(rs.getView());
+        hBox3.setAlignment(Pos.CENTER);
+        hBox3.setStyle(cssLayout);
+        hBox4.getChildren().addAll(lamp.getView());
+        hBox4.setAlignment(Pos.CENTER);
+        hBox4.setStyle(cssLayout);
         vBoxLeft.setPadding(new Insets(50));
         vBoxRight.setPadding(new Insets(50));
-        
-        //hBox.setAlignment(Pos.CENTER);
-        vBoxLeft.getChildren().addAll(shadeControl.getView(), lampControl.getView());
-        vBoxRight.getChildren().addAll(rs.getView(), lamp.getView());
+        vBoxLeft.setStyle(cssLayout);
+        vBoxRight.setStyle(cssLayout);
+        vBoxLeft.setAlignment(Pos.TOP_CENTER);
+        vBoxRight.setAlignment(Pos.BOTTOM_CENTER);
+        vBoxLeft.getChildren().addAll(hBox1, hBox2);
+        vBoxRight.getChildren().addAll(hBox3, hBox4);
         
         BorderPane pane = new BorderPane();
         pane.setLeft(vBoxLeft);
@@ -44,7 +67,7 @@ public class Stage2 extends Application {
         //pane.setCenter(rs.getView());
         //hBox.getChildren().add(0,shadeControl.getView());
         
-        Scene scene = new Scene(pane, 700, 400);
+        Scene scene = new Scene(pane, 650, 450);
         primaryStage.setTitle("Domotic Devices Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();

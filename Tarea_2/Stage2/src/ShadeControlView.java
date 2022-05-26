@@ -30,8 +30,16 @@ public class ShadeControlView extends BorderPane {
         // setTop(upButton);
         // setBottom(downButton);
 
-        channelButton.setOnAction( e-> {
-            //¿?
+        upButton.setOnMouseClicked(e -> {
+            shadeControl.startUp();
+        });
+
+        downButton.setOnMouseClicked(e -> {
+            shadeControl.startDown();
+        });
+
+        channelButton.setOnMouseClicked( e-> {
+            shadeControl.stop();
         });
     }
 }
