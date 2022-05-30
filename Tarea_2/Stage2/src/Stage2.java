@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Stage2 extends Application {
 
     public static void main(String[] args) {  
-        launch(args);  
+        launch(args);
     }
     
     public void start(Stage primaryStage) {
@@ -30,7 +30,7 @@ public class Stage2 extends Application {
         cloud.addRollerShade(rs);
 
         LampControl lampControl = new LampControl(lampChannel, cloud);
-        ShadeControl shadeControl = new ShadeControl(shadeChannel,cloud);
+        ShadeControl shadeControl = new ShadeControl(shadeChannel, cloud);
         
         VBox vBoxLeft = new VBox(20);
         VBox vBoxRight = new VBox(20);
