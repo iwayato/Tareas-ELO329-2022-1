@@ -1,5 +1,4 @@
 import java.util.Random;
-
 import javafx.scene.Group;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -7,7 +6,6 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
-//import java.io.File;
 
 public class RollerShadeView extends Group {
 
@@ -22,7 +20,6 @@ public class RollerShadeView extends Group {
         Media video1 = new Media(getClass().getResource("video/video1.mp4").toExternalForm());
         Media video2 = new Media(getClass().getResource("video/video2.mp4").toExternalForm());
 
-        
         MediaPlayer mediaPlayer1 = new MediaPlayer(video1);
         MediaView mediaView1 = new MediaView(mediaPlayer1);
         mediaView1.setFitWidth(300);
@@ -40,14 +37,10 @@ public class RollerShadeView extends Group {
         mediaPlayer2.setAutoPlay(true);
         mediaPlayer2.setMute(true);
         mediaPlayer2.setCycleCount(MediaPlayer.INDEFINITE);
-        
-        // Rectangle background = new Rectangle(5, 5, width - 10, maxLength-5);
-        // background.setFill(Color.BLUEVIOLET);  
-        
+                
         MediaView videoList[] = {mediaView1, mediaView2};
         getChildren().add(videoList[new Random().nextInt(videoList.length)]);
         
-        // Rolled up shade cloth
         Ellipse rightSide = new Ellipse(width, radius, radius/2, radius);
         Ellipse leftSide = new Ellipse(0, radius, radius/2, radius);
         rightSide.setFill(Color.BLACK);

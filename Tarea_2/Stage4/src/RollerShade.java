@@ -12,14 +12,14 @@ public class RollerShade extends DomoticDevice {
     private Motor motor;
     private double length;
     private final double MaxShadeLength;
-    private static double RADIUS = 4;  //cm
+    private static double RADIUS = 4;
 
     public RollerShade (int channel, double alpha, double width, double len) {
         super(channel);
         motor = new Motor(alpha);
         MaxShadeLength = len;
-        this.length = 8;  // Start with roller shade open.
-        view = new RollerShadeView(MaxShadeLength, width, this.length, RADIUS, Color.ORANGE);
+        this.length = 8;
+        view = new RollerShadeView(MaxShadeLength, width, this.length, RADIUS, Color.LIGHTGRAY);
     }
 
     public Group getView(){

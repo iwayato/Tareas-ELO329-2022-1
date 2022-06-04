@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -14,16 +15,18 @@ public class Stage4 extends Application {
     }
 
     public void start(Stage primaryStage) {
-
-        // String cssLayout = 
-        //     "-fx-border-color: black;\n" +
-        //     "-fx-border-insets: 5;\n" +
-        //     "-fx-border-width: 2;\n";
         
-        int lampChannel1 = 2;
-        int lampChannel2 = 3;
-        int shadeChannel1 = 1;
+        int lampChannel1 = 1;
+        int lampChannel2 = 2;
+        int shadeChannel1 = 3;
         int shadeChannel2 = 4;
+
+        Label rollerShadeControlLabel = new Label("Control de Cortinas");
+        Label lampControlLabel = new Label("Control de Lámparas");
+        rollerShadeControlLabel.setScaleX(1.5);
+        rollerShadeControlLabel.setScaleY(1.5);
+        lampControlLabel.setScaleX(1.5);
+        lampControlLabel.setScaleY(1.5);
 
         Cloud cloud = new Cloud();
         Lamp lamp1 = new Lamp(lampChannel1);
@@ -49,59 +52,53 @@ public class Stage4 extends Application {
         HBox hBox5 = new HBox();
         HBox hBox6 = new HBox();
 
+        // Box para el control de cortina
         hBox1.getChildren().addAll(shadeControl.getView());
         hBox1.setAlignment(Pos.CENTER);
-        //hBox1.setStyle(cssLayout);
 
+        // Box para el control de lámpara
         hBox2.getChildren().addAll(lampControl.getView());
         hBox2.setAlignment(Pos.CENTER);
-        //hBox2.setStyle(cssLayout);
 
+        // Box para la primera cortina
         hBox3.getChildren().addAll(rs1.getView());
         hBox3.setAlignment(Pos.CENTER);
-        //hBox3.setStyle(cssLayout);
 
+        // Box para la primera lámpara
         hBox4.getChildren().addAll(lamp1.getView());
         hBox4.setAlignment(Pos.CENTER);
-        //hBox4.setStyle(cssLayout);
+        hBox4.setPadding(new Insets(30, 0, 0, 0));
 
+        // Box para la segunda cortina
         hBox5.getChildren().addAll(rs2.getView());
         hBox5.setAlignment(Pos.CENTER);
-        //hBox5.setStyle(cssLayout);
 
+        // Box para la segunda lámpara
         hBox6.getChildren().addAll(lamp2.getView());
         hBox6.setAlignment(Pos.CENTER);
-        //hBox6.setStyle(cssLayout);
+        hBox6.setPadding(new Insets(30, 0, 0, 0));
     
         vBoxLeft.setPadding(new Insets(50));
         vBoxRight.setPadding(new Insets(50));
         vBoxMid.setPadding(new Insets(50));
 
-        // vBoxLeft.setStyle(cssLayout);
-        // vBoxRight.setStyle(cssLayout);
-        // vBoxMid.setStyle(cssLayout);
+        vBoxLeft.setAlignment(Pos.CENTER);
+        vBoxRight.setAlignment(Pos.CENTER);
+        vBoxMid.setAlignment(Pos.CENTER);
 
-        vBoxLeft.setAlignment(Pos.TOP_CENTER);
-        vBoxRight.setAlignment(Pos.TOP_CENTER);
-        vBoxMid.setAlignment(Pos.TOP_CENTER);
-
-        vBoxLeft.getChildren().addAll(hBox1, hBox2);
-        vBoxRight.getChildren().addAll(hBox3, hBox4);
-        vBoxMid.getChildren().addAll(hBox5, hBox6);
+        vBoxLeft.getChildren().addAll(rollerShadeControlLabel, hBox1, lampControlLabel, hBox2);
+        vBoxRight.getChildren().addAll(hBox5, hBox6);
+        vBoxMid.getChildren().addAll(hBox3, hBox4);
         
         BorderPane pane = new BorderPane();
         pane.setLeft(vBoxLeft);
         pane.setRight(vBoxRight);
         pane.setCenter(vBoxMid);
-        
-        //pane.setPadding(new Insets(20));
-        //pane.setBottom(hBox);
-        //pane.setCenter(rs.getView());
-        //hBox.getChildren().add(0,shadeControl.getView());
-        
-        Scene scene = new Scene(pane, 1200, 500);
+                
+        Scene scene = new Scene(pane, 1150, 600);
         primaryStage.setTitle("Domotic Devices Simulator");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

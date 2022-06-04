@@ -1,3 +1,4 @@
+import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -10,25 +11,29 @@ public class ShadeControlView extends BorderPane {
 
         GridPane grid = new GridPane();
 
-        Button upButton = new Button("  Up   ");
-        Button downButton = new Button("Down");
-        Button nextChannelButton = new Button("Next Channel");
-        Button previusChannelButton = new Button("Previus Channel");
-        Button channelButton = new Button("0");
+        Button upButton = new Button();
+        upButton.setGraphic(new ButtonIcon("img/arrow.png", 0.0).getIcon());
 
+        Button downButton = new Button();
+        downButton.setGraphic(new ButtonIcon("img/arrow.png", 180.0).getIcon());
+
+        Button nextChannelButton = new Button();
+        nextChannelButton.setGraphic(new ButtonIcon("img/arrow.png", 90.0).getIcon());
+
+        Button previusChannelButton = new Button();
+        previusChannelButton.setGraphic(new ButtonIcon("img/arrow.png", 270.0).getIcon());
+
+        Button channelButton = new Button("0");
+        channelButton.setScaleX(1.5);
+        channelButton.setScaleY(1.5);
+
+        setCenter(grid);
         grid.add(upButton, 1, 0, 1, 1);
         grid.add(downButton, 1, 2, 1, 1);
         grid.add(nextChannelButton, 2, 1, 1, 1);
         grid.add(previusChannelButton, 0, 1, 1, 1);
         grid.add(channelButton, 1, 1, 1, 1);
-
-        setCenter(grid);
-
-        // setCenter(channelButton);
-        // setLeft(previusChannelButton);
-        // setRight(nextChannelButton);
-        // setTop(upButton);
-        // setBottom(downButton);
+        GridPane.setHalignment(channelButton, HPos.CENTER);
 
         upButton.setOnMouseClicked(e -> {
             shadeControl.startUp(Integer.parseInt(channelButton.getText()));
