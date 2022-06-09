@@ -5,12 +5,19 @@ import javafx.scene.shape.Rectangle;
 
 public class LampView extends Group {
 
+    // Tres partes que construyen una lámpara completa
     Polygon topPart = new Polygon();
     Rectangle recMid = new Rectangle();
     Rectangle recBot = new Rectangle();
+    
+    // Función para cambiar el color de la lámpara
+    public void setColor(Double r, Double g, Double b){
+        topPart.setFill(Color.rgb(r.intValue(), g.intValue(), b.intValue()));
+    }
 
     public LampView () {
 
+        // Puntos que componen la parte superior de la lámpara
         topPart.getPoints().addAll(new Double[]{
             30.0, 0.0,
             80.0, 0.0,
@@ -18,6 +25,7 @@ public class LampView extends Group {
             0.0, 40.0
         });
 
+        // Se trasladan las partes de la lámpara y se cambia el color de la parte inferior de ésta
         topPart.setTranslateX(-25.0);
         topPart.setTranslateY(20.0);
 
@@ -35,10 +43,8 @@ public class LampView extends Group {
         recBot.setHeight(10);
         recBot.setFill(Color.BROWN);
 
+        // Se añade la lámpara a la escena
         getChildren().addAll(topPart, recMid, recBot);
     }
 
-    public void setColor(Double r, Double g, Double b){
-        topPart.setFill(Color.rgb(r.intValue(), g.intValue(), b.intValue()));
-    }
 }

@@ -36,6 +36,7 @@ public class Stage4 extends Application {
         Lamp lamp2 = new Lamp(lampChannel2);
         RollerShade rs1 = new RollerShade(shadeChannel1, 2, 300, 170);
         RollerShade rs2 = new RollerShade(shadeChannel2, 2, 300, 170);
+        // Se registran los dispositivos en la nube
         cloud.addLamp(lamp1);
         cloud.addLamp(lamp2);
         cloud.addRollerShade(rs1);

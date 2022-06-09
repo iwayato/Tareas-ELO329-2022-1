@@ -49,13 +49,13 @@ public class ShadeControlView extends BorderPane {
             shadeControl.startUp(Integer.parseInt(channelButton.getText()));
         });
 
-        // Handler del botón para bajar la cortina, ejecuta la función que sube la cortina en el control de cortinas usando como argumento
+        // Handler del botón para bajar la cortina, ejecuta la función que baja la cortina en el control de cortinas usando como argumento
         // el número presente en el campo de texto del botón 'channelButton'
         downButton.setOnMouseClicked(e -> {
             shadeControl.startDown(Integer.parseInt(channelButton.getText()));
         });
 
-        // Handler del botón para parar la cortina, ejecuta la función que sube la cortina en el control de cortinas usando como argumento
+        // Handler del botón para parar la cortina, ejecuta la función que para la cortina en el control de cortinas usando como argumento
         // el número presente en el campo de texto del botón 'channelButton'
         channelButton.setOnMouseClicked(e-> {
             shadeControl.stop(Integer.parseInt(channelButton.getText()));
