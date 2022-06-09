@@ -4,8 +4,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-//import javafx.geometry.Insets;
-//import javafx.scene.layout.Pane;
 
 public class Stage1 extends Application {
 
@@ -15,7 +13,7 @@ public class Stage1 extends Application {
 
     @Override 
     public void start(Stage primaryStage) {
-
+        
         int lampChannel = 1;
         Cloud cloud = new Cloud();
         Lamp lamp = new Lamp(lampChannel);
