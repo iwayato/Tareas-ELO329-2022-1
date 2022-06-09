@@ -16,11 +16,13 @@ public class Stage4 extends Application {
 
     public void start(Stage primaryStage) {
         
+        // Canales de los dispositivos
         int lampChannel1 = 2;
         int lampChannel2 = 3;
         int shadeChannel1 = 1;
         int shadeChannel2 = 4;
 
+        // Labels para identificar control de lámpara y control de cortina
         Label rollerShadeControlLabel = new Label("Control de Cortinas");
         Label lampControlLabel = new Label("Control de Lámparas");
         rollerShadeControlLabel.setScaleX(1.5);
@@ -28,6 +30,7 @@ public class Stage4 extends Application {
         lampControlLabel.setScaleX(1.5);
         lampControlLabel.setScaleY(1.5);
 
+        // Creación de la nube, lámparas y cortinas
         Cloud cloud = new Cloud();
         Lamp lamp1 = new Lamp(lampChannel1);
         Lamp lamp2 = new Lamp(lampChannel2);
@@ -38,13 +41,16 @@ public class Stage4 extends Application {
         cloud.addRollerShade(rs1);
         cloud.addRollerShade(rs2);
 
+        // Creación de controles de lámpara y cortina
         LampControl lampControl = new LampControl(lampChannel1, cloud);
         ShadeControl shadeControl = new ShadeControl(shadeChannel1, cloud);
-        
+
+        // Contenedores principales para elementos gráficos
         VBox vBoxLeft = new VBox(20);
         VBox vBoxRight = new VBox(20);
         VBox vBoxMid = new VBox(20);
 
+        // Contenedores para cada elemento visual básico
         HBox hBox1 = new HBox();
         HBox hBox2 = new HBox();
         HBox hBox3 = new HBox();
@@ -78,23 +84,28 @@ public class Stage4 extends Application {
         hBox6.setAlignment(Pos.CENTER);
         hBox6.setPadding(new Insets(30, 0, 0, 0));
     
+        // Padding de los contenedores
         vBoxLeft.setPadding(new Insets(50));
         vBoxRight.setPadding(new Insets(50));
         vBoxMid.setPadding(new Insets(50));
 
+        // Alineación de los contenedores
         vBoxLeft.setAlignment(Pos.CENTER);
         vBoxRight.setAlignment(Pos.CENTER);
         vBoxMid.setAlignment(Pos.CENTER);
 
+        // Se añaden los contenedores de los elementos básicos a los contenedores principales
         vBoxLeft.getChildren().addAll(rollerShadeControlLabel, hBox1, lampControlLabel, hBox2);
         vBoxRight.getChildren().addAll(hBox5, hBox6);
         vBoxMid.getChildren().addAll(hBox3, hBox4);
         
+        // Creación del Pane y asignación de contenedores a éste
         BorderPane pane = new BorderPane();
         pane.setLeft(vBoxLeft);
         pane.setRight(vBoxRight);
         pane.setCenter(vBoxMid);
                 
+        // Se crea la escena
         Scene scene = new Scene(pane, 1150, 600);
         primaryStage.setTitle("Domotic Devices Simulator");
         primaryStage.setScene(scene);
