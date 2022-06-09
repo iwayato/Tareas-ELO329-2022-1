@@ -16,9 +16,9 @@ public class Stage4 extends Application {
 
     public void start(Stage primaryStage) {
         
-        int lampChannel1 = 1;
-        int lampChannel2 = 2;
-        int shadeChannel1 = 3;
+        int lampChannel1 = 2;
+        int lampChannel2 = 3;
+        int shadeChannel1 = 1;
         int shadeChannel2 = 4;
 
         Label rollerShadeControlLabel = new Label("Control de Cortinas");
