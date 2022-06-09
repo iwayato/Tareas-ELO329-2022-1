@@ -63,6 +63,7 @@ public class Stage2 extends Application {
         Scene scene = new Scene(pane, 500, 350);
         primaryStage.setTitle("Domotic Devices Simulator");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
