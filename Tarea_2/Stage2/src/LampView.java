@@ -1,27 +1,31 @@
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
-//import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;  
 
 public class LampView extends Group {
 
-    Rectangle recTop = new Rectangle();
+    Polygon topPart = new Polygon();
     Rectangle recMid = new Rectangle();
     Rectangle recBot = new Rectangle();
 
     public LampView () {
 
-        recTop.setX(0);
-        recTop.setY(0);
+        topPart.getPoints().addAll(new Double[]{
+            30.0, 0.0,
+            80.0, 0.0,
+            110.0, 40.0,
+            0.0, 40.0
+        });
+
+        topPart.setTranslateX(-25.0);
+        topPart.setTranslateY(20.0);
 
         recMid.setX(25);
         recMid.setY(60);
 
         recBot.setX(0);
         recBot.setY(160);
-
-        recTop.setWidth(60);
-        recTop.setHeight(60);
 
         recMid.setWidth(10);
         recMid.setHeight(100);
@@ -31,10 +35,10 @@ public class LampView extends Group {
         recBot.setHeight(10);
         recBot.setFill(Color.BROWN);
 
-        getChildren().addAll(recTop, recMid, recBot);
+        getChildren().addAll(topPart, recMid, recBot);
     }
 
     public void setColor(short r, short g, short b){
-        recTop.setFill(Color.rgb(r, g, b));
+        topPart.setFill(Color.rgb(r, g, b));
     }
 }
