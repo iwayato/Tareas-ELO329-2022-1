@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>power_button.png</file>
-    </qresource>
-</RCC>

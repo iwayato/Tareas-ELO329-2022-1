@@ -1,23 +1,30 @@
-#include "stage1.h"
-#include "ui_stage1.h"
-#include "lamp.h"
+#include "Stage1.h"
+#include "ui_Stage1.h"
+#include <QGraphicsScene>
 
-// Constructor de ventana principal, se inicializa con el constructor de
-// QMainWindow y se inicializa el atributo privado ui
-Stage1::Stage1(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::Stage1)
+Stage1::Stage1(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::Stage1)
 {
-    // Le agrega a la MainWindow, todos los elementos que se configuraron a través de QtDesigner
     ui->setupUi(this);
 
-    Lamp lamp(1);
-
+    QGraphicsView* GraphicView1 = ui->graphicsView;
+    lamp = new Lampview();
+    GraphicView1->setScene(lamp);
 }
 
-Stage1::~Stage1(){
+Stage1::~Stage1()
+{
     delete ui;
 }
 
+void Stage1::powerButtonClicked()
+{
+    lamp->ChangeState();
+}
 
+void Stage1::on_pushButton_clicked()
+{
+    powerButtonClicked();
+}
 
