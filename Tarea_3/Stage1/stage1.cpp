@@ -8,8 +8,9 @@ Stage1::Stage1(QWidget *parent)
 {
     ui->setupUi(this);
 
+    setup();
+
     QGraphicsView* GraphicView1 = ui->graphicsView;
-    lamp = new Lampview();
     GraphicView1->setScene(lamp);
 }
 
@@ -20,11 +21,18 @@ Stage1::~Stage1()
 
 void Stage1::powerButtonClicked()
 {
-    lamp->ChangeState();
+    control->ButtonPressed();
 }
 
 void Stage1::on_pushButton_clicked()
 {
     powerButtonClicked();
+}
+
+void Stage1::setup()
+{
+    lamp = new Lampview();
+    c = new Cloud(lamp);
+    control = new LampControl(c);
 }
 

@@ -2,7 +2,7 @@
 #define STAGE1_H
 
 #include <QMainWindow>
-#include "Lampview.h"
+#include "LampControl.h"
 
 using namespace std;
 
@@ -17,11 +17,14 @@ class Stage1 : public QMainWindow
     private:
         Ui::Stage1 *ui;
         Lampview *lamp;
+        Cloud* c;
+        LampControl* control;
 
     public:
         Stage1(QWidget *parent = nullptr);
         ~Stage1();
         void powerButtonClicked();
+        void setup();
 
     private slots:
         void on_pushButton_clicked();
