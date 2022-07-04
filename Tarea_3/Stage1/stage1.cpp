@@ -8,10 +8,10 @@ Stage1::Stage1(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setup();
+    setup();  //Se preparan las clases correspondientes
 
     QGraphicsView* GraphicView1 = ui->graphicsView;
-    GraphicView1->setScene(lamp);
+    GraphicView1->setScene(lamp);  //Se agrega la lampara a la vista grafica de la ventana
 }
 
 Stage1::~Stage1()

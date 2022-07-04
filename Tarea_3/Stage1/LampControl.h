@@ -6,11 +6,11 @@
 class LampControl
 {
 private:
-    Cloud* c;
+    Cloud* c;  //Nube con la que se contactará el control
 
 public:
-    LampControl(Cloud* nube);
-    void ButtonPressed();
+    LampControl(Cloud* nube);  //Constructor
+    void ButtonPressed();      //Prende o apaga la lampara
 };
 
 #endif // LAMPCONTROL_H

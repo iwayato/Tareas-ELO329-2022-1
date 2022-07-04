@@ -6,11 +6,11 @@
 class Cloud
 {
 private:
-    Lampview* lamp;
+    Lampview* lamp;  //Lampara que manejará la nube
 
 public:
-    Cloud(Lampview* lampara);
-    void changeLampState();
+    Cloud(Lampview* lampara);  //Constructor
+    void changeLampState();    //Cambia el estado de la lampara
 };
 
 #endif // CLOUD_H

@@ -21,12 +21,12 @@ class Stage1 : public QMainWindow
         LampControl* control;
 
     public:
-        Stage1(QWidget *parent = nullptr);
-        ~Stage1();
-        void powerButtonClicked();
-        void setup();
+        Stage1(QWidget *parent = nullptr);  //Constructor
+        ~Stage1();                          //Destructor
+        void powerButtonClicked();          //Cambia el estado de la lampara
+        void setup();                       //Crea todas las clases necesarias para el funcionamiento del programa
 
     private slots:
-        void on_pushButton_clicked();
+        void on_pushButton_clicked();       //Prende o apaga la lampara cuando se apreta el boton de la ventana
 };
 #endif // STAGE1_H
