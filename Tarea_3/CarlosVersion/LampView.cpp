@@ -13,7 +13,6 @@ LampView::LampView(int channel)
     head->setPolygon(polygon);
     head->setBrush(color);
 
-
     body = new QGraphicsPolygonItem();
     QPolygon polygon2;
     polygon2 << QPoint(-2,0) << QPoint(2,0) << QPoint(2,150) << QPoint(25,150) << QPoint(35,160) << QPoint(35,180) << QPoint(-35,180) << QPoint(-35,160) << QPoint(-25,150) << QPoint(-2,150);

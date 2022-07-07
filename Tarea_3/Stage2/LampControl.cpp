@@ -9,3 +9,8 @@ void LampControl::ButtonPressed()
 {
     c->changeLampState();
 }
+
+void LampControl::ChangeIntensity(int value)
+{
+    c->
+}

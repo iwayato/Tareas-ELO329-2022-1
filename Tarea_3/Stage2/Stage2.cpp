@@ -32,7 +32,7 @@ void Stage2::powerButtonClicked()
 
 void Stage2::on_horizontalSliderI_valueChanged(int value)
 {
-    lamp->ChangeIntensity(value);
+    control->ChangeIntensity(value);
 }
 
 void Stage2::on_pushButton_clicked()

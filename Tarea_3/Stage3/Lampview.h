@@ -13,12 +13,13 @@ class Lampview:public QGraphicsScene
         QColor color;
         QGraphicsPolygonItem* head;   //Cabeza de la lampara
         QGraphicsPolygonItem* body;   //Cuerpo de la lampara
+        int channel;
 
     public:
-        Lampview();               //Constructor
-        void ChangeState();       //Hace un toggle del estado de la lampara
+        Lampview(int channel); //Constructor
+        void ChangeState(); //Hace un toggle del estado de la lampara
         void ChangeIntensity(int value);
-        int getChannel();         //Retorna el canal de la lampara
+        int getChannel(); //Retorna el canal de la lampara
 };
 
 #endif // LAMPVIEW_H

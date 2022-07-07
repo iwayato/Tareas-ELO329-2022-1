@@ -16,6 +16,7 @@ public:
     void ChangeB(int value);
     void setDefault();
     int getChannel();
+    
 private:
     bool State;
     QGraphicsPolygonItem* head;
