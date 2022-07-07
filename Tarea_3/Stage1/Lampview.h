@@ -10,14 +10,14 @@ class Lampview:public QGraphicsScene
 {
 
     private:
-    bool State;
-    QGraphicsPolygonItem* head;
-    QGraphicsPolygonItem* body;
+    bool State;                   //Estado de la Lampara. TRUE = Encendido ; FALSE = Apagado
+    QGraphicsPolygonItem* head;   //Cabeza de la lampara
+    QGraphicsPolygonItem* body;   //Cuerpo de la lampara
 
     public:
-        Lampview();
-        void ChangeState();
-        int getChannel();
+        Lampview();               //Constructor
+        void ChangeState();       //Hace un toggle del estado de la lampara
+        int getChannel();         //Retorna el canal de la lampara
 
 };
 
