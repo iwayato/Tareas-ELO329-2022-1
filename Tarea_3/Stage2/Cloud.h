@@ -11,7 +11,7 @@ class Cloud
     public:
         Cloud(Lampview* lampara);  //Constructor
         void changeLampState();    //Cambia el estado de la lampara
-        void change
+        void ChangeIntensityLamp(int value);
 };
 
 #endif // CLOUD_H

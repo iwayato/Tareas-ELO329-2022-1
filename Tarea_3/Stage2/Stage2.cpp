@@ -25,6 +25,13 @@ Stage2::~Stage2()
     delete ui;
 }
 
+void Stage2::setup()
+{
+    lamp = new Lampview();
+    c = new Cloud(lamp);
+    control = new LampControl(c);
+}
+
 void Stage2::powerButtonClicked()
 {
     control->ButtonPressed();
@@ -39,12 +46,3 @@ void Stage2::on_pushButton_clicked()
 {
     powerButtonClicked();
 }
-
-void Stage2::setup()
-{
-    lamp = new Lampview();
-    c = new Cloud(lamp);
-    control = new LampControl(c);
-}
-
-

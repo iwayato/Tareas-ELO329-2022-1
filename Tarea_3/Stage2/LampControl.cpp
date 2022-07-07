@@ -12,5 +12,7 @@ void LampControl::ButtonPressed()
 
 void LampControl::ChangeIntensity(int value)
 {
-    c->
+    c->ChangeIntensityLamp(value);
 }
+
+

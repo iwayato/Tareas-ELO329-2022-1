@@ -6,7 +6,6 @@
 #include <vector>
 
 using namespace std;
-
 class QSlider;
 
 QT_BEGIN_NAMESPACE
@@ -30,9 +29,7 @@ private slots:
     void on_horizontalSliderG_valueChanged(int value);
     void on_horizontalSliderB_valueChanged(int value);
     void on_spinBox_valueChanged(int arg1);
-
     void on_actionIntensity_triggered();
-
     void on_actionRGB_triggered();
 
 private:

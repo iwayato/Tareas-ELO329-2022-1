@@ -53,8 +53,6 @@ MainWindow::MainWindow(QWidget *parent)
     sliderR->setVisible(false);
     sliderG->setVisible(false);
     sliderB->setVisible(false);
-
-
 }
 
 MainWindow::~MainWindow()

@@ -11,6 +11,7 @@ class LampControl
     public:
         LampControl(Cloud* nube);  //Constructor
         void ButtonPressed();      //Prende o apaga la lampara
+        void ChangeIntensity(int value);
 };
 
 #endif // LAMPCONTROL_H
